@@ -30,7 +30,7 @@ namespace CSharpCorner_Exercise2
             foreach (var point in points)
             {
                 count++;
-                sb.Append("Point " + count + " (" + point.x + ", " + point.y + ")\n");
+                sb.AppendFormat("Point {0} ({1},{2}){3}", count, point.x, point.y, Environment.NewLine);
             }
             return sb.ToString();
         }
