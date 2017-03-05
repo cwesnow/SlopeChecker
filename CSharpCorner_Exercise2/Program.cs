@@ -20,12 +20,11 @@ namespace CSharpCorner_Exercise2
             // Display all entered Points - User gets a final look at the data before it's checked
             Console.Clear();
             Console.WriteLine(Slopes.outputString());
-
             Input.Pause();
-            Console.Clear();
 
+            Console.Clear();
             Console.WriteLine("Performing Line check");
-            // Slope check - Throws errors, display useful message
+            // Slope check - Throws errors, displays useful user messages
             try
             {
                 if (Slopes.isSameLine()) { 
