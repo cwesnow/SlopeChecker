@@ -23,20 +23,19 @@ namespace CSharpCorner_Exercise2
         /// <summary>
         /// User enters X and Y values then returns Point
         /// </summary>
-        /// <param name="slopeNumber"></param>
+        /// <param name="pointNumber"></param>
         /// <returns></returns>
         internal static Point getPoint(int pointNumber)
         {
-            Console.WriteLine("Point # {0}", pointNumber);
+            Console.WriteLine("Point {0}", pointNumber);
 
-            Point point = new Point();
+            Point point;
             point.x = getInt("  X-coordinate >>> ", -100, 100);
             point.y = getInt("  Y-coordinate >>> ", -100, 100);
 
             // Check for correct input, before returning new values
             Console.WriteLine("X = {0} and Y = {1}, is this correct? [Y,N]", point.x, point.y);
             if (!(Console.ReadLine().Substring(0, 1).ToUpper() == "Y")) point = getPoint(pointNumber);
-
             return point;
         }
     }
