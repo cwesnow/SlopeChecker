@@ -6,7 +6,6 @@ namespace CSharpCorner_Exercise2
     {
         static void Main()
         {
-
             setup();
 
             // Original Requirement for 3x points
@@ -17,9 +16,15 @@ namespace CSharpCorner_Exercise2
             // This allows variable amounts of inputs, and uses getInt to set a min and max range for it.
             Slopes.addPoints( Input.getInt("How many points?", 2, 5) );
             
+            
             // Display all entered Points - User gets a final look at the data before it's checked
+            Console.Clear();
             Console.WriteLine(Slopes.outputString());
 
+            Input.Pause();
+            Console.Clear();
+
+            Console.WriteLine("Performing Line check");
             // Slope check - Throws errors, display useful message
             try
             {
@@ -40,20 +45,19 @@ namespace CSharpCorner_Exercise2
             {
                 Console.WriteLine( "Error: {0}", e.Message );
             }
-            finally
-            {
-                // Pause
-                Console.WriteLine("Press any key to exit . . .");
-                Console.ReadKey();
-            }
+
+            Input.Pause();
         }
 
         static void setup()
         {
-            Console.Title = "Slope Checker";
+            string name = "Line Checker";
+            Console.Title = name;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
+
+            Console.WriteLine("Welcome to the {0}!\n\n\tEnter a few points, and we'll find the line(s)", name);
         }
     }
 }

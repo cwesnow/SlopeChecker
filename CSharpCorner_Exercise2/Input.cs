@@ -5,6 +5,14 @@ namespace CSharpCorner_Exercise2
     class Input
     {
         /// <summary>
+        /// Press Any Key before continuing
+        /// </summary>
+        internal static void Pause(){
+            Console.WriteLine("Press any key to exit . . .");
+            Console.ReadKey();
+        }
+
+        /// <summary>
         /// Allows for user input with a custom prompt that allows a minimum and maximum number range to be returned
         /// </summary>
         /// <param name="prompt">Console output for user</param>
