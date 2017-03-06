@@ -2,39 +2,35 @@
 
 namespace CSharpCorner_Exercise2
 {
+    /// <summary>
+    /// Original: Take in 3 coordinates and tell me if it's a straight line.
+    /// </summary>
     class Program
     {
         static void Main()
         {
             setup();
 
-            // Original Requirement for 3x points
-            //Slopes.addPoint();
-            //Slopes.addPoint();
-            //Slopes.addPoint();
-            
             // This allows variable amounts of inputs, and uses getInt to set a min and max range for it.
-            Points.addPoints( Input.getInt("How many points?", 2, 5) );
+            Points.addPoints( Input.getInt("\n How many (X,Y) points will you enter?", 2, 9) );
             
             
             // Display all entered Points - User gets a final look at the data before it's checked
-            Console.Clear();
             Console.WriteLine(Points.outputString());
             Input.Pause();
 
-            Console.Clear();
-            Console.WriteLine("Performing Line check");
+            Console.WriteLine("\n Performing Line check");
             // Slope check - Throws errors, displays useful user messages
             try
             {
                 if (Points.isSameLine()) { 
-                    Console.WriteLine("All points are on the same line."); }
+                    Console.WriteLine("It made a Straight Line."); }
                 else {
-                    Console.WriteLine("Points are not on the same line."); }
+                    Console.WriteLine("It didn't make a Straight Line."); }
             }
             catch (DivideByZeroException)
             {
-                Console.WriteLine("Error: Undefined line, Failed vertical line test");
+                Console.WriteLine("Error: Undefined line");
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -48,6 +44,9 @@ namespace CSharpCorner_Exercise2
             Input.Pause();
         }
 
+        /// <summary>
+        /// Sets Title, foreground, background, and displays Welcome Text
+        /// </summary>
         static void setup()
         {
             string name = "Line Checker";
@@ -56,7 +55,8 @@ namespace CSharpCorner_Exercise2
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
 
-            Console.WriteLine("Welcome to the {0}!\n\n\tEnter a few points, and we'll find the line(s)", name);
+            Console.WriteLine("Welcome to the {0}!\n\n\tLet's figure out if your points make a straight line!", name);
+            Input.Pause();
         }
     }
 }

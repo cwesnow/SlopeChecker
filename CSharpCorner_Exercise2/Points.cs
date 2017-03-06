@@ -34,7 +34,7 @@ namespace CSharpCorner_Exercise2
         /// <returns>String</returns>
         public static string outputString()
         {
-            var sb = new StringBuilder("");
+            var sb = new StringBuilder("\n Points List\n~~~~~~~~~~~~~\n");
             int count = 0;
 
             // Output each Slopes Points and Slope
