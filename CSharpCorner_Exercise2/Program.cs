@@ -7,7 +7,7 @@ namespace CSharpCorner_Exercise2
     /// </summary>
     class Program
     {
-        static void Main()
+        public static void Main()
         {
             setup();
 

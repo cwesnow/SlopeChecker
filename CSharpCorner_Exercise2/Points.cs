@@ -11,7 +11,7 @@ namespace CSharpCorner_Exercise2
         /// <summary>
         /// Adds 1 Point to the collection of points
         /// </summary>
-        public static void addPoint(){
+        internal static void addPoint(){
             points.Add( Input.getPoint(points.Count+1) );
         }
 
@@ -19,7 +19,7 @@ namespace CSharpCorner_Exercise2
         /// Add a Number of points
         /// </summary>
         /// <param name="number"></param>
-        public static void addPoint(int number)
+        internal static void addPoint(int number)
         {
             while (number > 0)
             {
@@ -32,7 +32,7 @@ namespace CSharpCorner_Exercise2
         /// Output String that represents collection of points
         /// </summary>
         /// <returns>String</returns>
-        public static string outputString()
+        internal static string outputString()
         {
             var sb = new StringBuilder("\n Points List\n~~~~~~~~~~~~~\n");
             int count = 0;
@@ -53,7 +53,7 @@ namespace CSharpCorner_Exercise2
         /// Checks if all points are on the same line using the slope formula
         /// </summary>
         /// <returns>bool</returns>
-        public static bool isSameLine()
+        internal static bool isSameLine()
         {
             // Can't make a slope without 2 points
             if (points.Count < 2) throw new ArgumentOutOfRangeException();
@@ -83,7 +83,7 @@ namespace CSharpCorner_Exercise2
         /// <param name="pt1"></param>
         /// <param name="pt2"></param>
         /// <returns></returns>
-        public static double slope(Point pt1, Point pt2)
+        internal static double slope(Point pt1, Point pt2)
         {
             if (pt2.x - pt1.x == 0) throw new DivideByZeroException();
 
