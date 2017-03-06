@@ -9,23 +9,23 @@ namespace CSharpCorner_Exercise2
         static List<Point> points = new List<Point>();
 
         /// <summary>
-        /// Loops X times adding a point to the collection of points
-        /// </summary>
-        /// <param name="numberOfPoints"></param>
-        public static void addPoints(int numberOfPoints)
-        {
-            // Collection of Slope inputs
-            for (int x = 0; x < numberOfPoints; x++)
-            {
-                addPoint();
-            }
-        }
-        
-        /// <summary>
         /// Adds 1 Point to the collection of points
         /// </summary>
         public static void addPoint(){
             points.Add( Input.getPoint(points.Count+1) );
+        }
+
+        /// <summary>
+        /// Add a Number of points
+        /// </summary>
+        /// <param name="number"></param>
+        public static void addPoint(int number)
+        {
+            while (number > 0)
+            {
+                addPoint();
+                number--;
+            }
         }
 
         /// <summary>

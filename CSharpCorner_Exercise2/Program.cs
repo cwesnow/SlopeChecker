@@ -11,15 +11,12 @@ namespace CSharpCorner_Exercise2
         {
             setup();
 
-            // This allows variable amounts of inputs, and uses getInt to set a min and max range for it.
-            Points.addPoints( Input.getInt("\n How many (X,Y) points will you enter?", 2, 9) );
-            
+            Points.addPoint(Input.getInt("How many points will we enter today?", 2, 5));
             
             // Display all entered Points - User gets a final look at the data before it's checked
-            Console.WriteLine(Points.outputString());
-            Input.Pause();
+            Input.Pause(Points.outputString());
 
-            Console.WriteLine("\n Performing Line check");
+            Console.WriteLine("{0} Performing Line check", Environment.NewLine);
             // Slope check - Throws errors, displays useful user messages
             try
             {
@@ -30,18 +27,18 @@ namespace CSharpCorner_Exercise2
             }
             catch (DivideByZeroException)
             {
-                Console.WriteLine("Error: Undefined line");
+                Console.WriteLine("Undefined line");
             }
             catch (ArgumentOutOfRangeException)
             {
-                Console.WriteLine("Error: Requires 2 points to find a slope.");
+                Console.WriteLine("It takes 2 points to make a line.");
             }
             catch (Exception e)
             {
                 Console.WriteLine( "Error: {0}", e.Message );
             }
 
-            Input.Pause();
+            Input.Pause("Exiting program . . .");
         }
 
         /// <summary>
@@ -53,10 +50,11 @@ namespace CSharpCorner_Exercise2
             Console.Title = name;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.BackgroundColor = ConsoleColor.Black;
+
+            // This helps make sure the entire screen is uniform with the color choices.
             Console.Clear();
 
-            Console.WriteLine("Welcome to the {0}!\n\n\tLet's figure out if your points make a straight line!", name);
-            Input.Pause();
+            Input.Pause(String.Format("Welcome to the {1}!{0}{0}  Let's if your points make a straight line!", Environment.NewLine, name));
         }
     }
 }

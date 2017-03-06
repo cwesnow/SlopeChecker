@@ -5,10 +5,11 @@ namespace CSharpCorner_Exercise2
     class Input
     {
         /// <summary>
-        /// Press Any Key before continuing
+        /// Press Any Key to continue by default, allows custom message to be passed in
         /// </summary>
-        internal static void Pause(){
-            Console.WriteLine("Press any key to exit . . .");
+        internal static void Pause(String prompt = "Press any key to continue . . .")
+        {
+            Console.WriteLine(prompt);
             Console.ReadKey();
         }
 
@@ -22,7 +23,7 @@ namespace CSharpCorner_Exercise2
         internal static int getInt(string prompt, int minimum, int maximum)
         {
             int x;
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             while (!int.TryParse(Console.ReadLine(), out x) || x < minimum || x > maximum)
                 Console.WriteLine("Error: Number must be between {0} and {1}", minimum, maximum);
             return x;
@@ -35,15 +36,15 @@ namespace CSharpCorner_Exercise2
         /// <returns></returns>
         internal static Point getPoint(int pointNumber)
         {
-            Console.WriteLine("Point {0}", pointNumber);
+            Console.WriteLine("{0}Creating Point {1}", Environment.NewLine, pointNumber);
 
             Point point;
             point.x = getInt("  X-coordinate >>> ", -100, 100);
             point.y = getInt("  Y-coordinate >>> ", -100, 100);
 
             // Check for correct input, before returning new values
-            Console.WriteLine("X = {0} and Y = {1}, is this correct? [Y,N]", point.x, point.y);
-            if (!(Console.ReadLine().Substring(0, 1).ToUpper() == "Y")) point = getPoint(pointNumber);
+            Console.Write("Add Point ({1},{2})? [Y,N] ", pointNumber, point.x, point.y);
+            if ( Console.ReadLine().Substring(0, 1).ToUpper() != "Y") point = getPoint(pointNumber);
             return point;
         }
     }
