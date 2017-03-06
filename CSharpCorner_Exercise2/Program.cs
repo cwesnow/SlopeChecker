@@ -12,14 +12,14 @@ namespace CSharpCorner_Exercise2
             //Slopes.addPoint();
             //Slopes.addPoint();
             //Slopes.addPoint();
-
+            
             // This allows variable amounts of inputs, and uses getInt to set a min and max range for it.
-            Slopes.addPoints( Input.getInt("How many points?", 2, 5) );
+            Points.addPoints( Input.getInt("How many points?", 2, 5) );
             
             
             // Display all entered Points - User gets a final look at the data before it's checked
             Console.Clear();
-            Console.WriteLine(Slopes.outputString());
+            Console.WriteLine(Points.outputString());
             Input.Pause();
 
             Console.Clear();
@@ -27,7 +27,7 @@ namespace CSharpCorner_Exercise2
             // Slope check - Throws errors, displays useful user messages
             try
             {
-                if (Slopes.isSameLine()) { 
+                if (Points.isSameLine()) { 
                     Console.WriteLine("All points are on the same line."); }
                 else {
                     Console.WriteLine("Points are not on the same line."); }
